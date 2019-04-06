@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Serialize_Desserialize_Cards
+namespace Serialize_Deserialize_Cards
 {
     static class Program
     {

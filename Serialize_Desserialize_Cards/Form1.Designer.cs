@@ -1,4 +1,4 @@
-﻿namespace Serialize_Desserialize_Cards
+﻿namespace Serialize_Deserialize_Cards
 {
     partial class Form1
     {

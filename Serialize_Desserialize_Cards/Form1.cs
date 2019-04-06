@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Serialize_Desserialize_Cards
+namespace Serialize_Deserialize_Cards
 {
     public partial class Form1 : Form
     {

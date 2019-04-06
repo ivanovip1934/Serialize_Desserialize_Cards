@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Serialize_Desserialize_Cards
+namespace Serialize_Deserialize_Cards
 {
     class Deck
     {
