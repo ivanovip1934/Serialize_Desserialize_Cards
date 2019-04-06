@@ -28,61 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button_WriteDeck = new System.Windows.Forms.Button();
-            this.button_ReadeDeck = new System.Windows.Forms.Button();
-            this.button_writeSevRandDeck = new System.Windows.Forms.Button();
-            this.button_readeSavRanDeck = new System.Windows.Forms.Button();
+            this.button_SerCard1 = new System.Windows.Forms.Button();
+            this.button_SerCard2 = new System.Windows.Forms.Button();
+            this.button_CompareCard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button_WriteDeck
+            // button_SerCard1
             // 
-            this.button_WriteDeck.Location = new System.Drawing.Point(104, 107);
-            this.button_WriteDeck.Name = "button_WriteDeck";
-            this.button_WriteDeck.Size = new System.Drawing.Size(163, 23);
-            this.button_WriteDeck.TabIndex = 0;
-            this.button_WriteDeck.Text = "Write  Random Deck to File";
-            this.button_WriteDeck.UseVisualStyleBackColor = true;
-            this.button_WriteDeck.Click += new System.EventHandler(this.button_WriteDeck_Click);
+            this.button_SerCard1.Location = new System.Drawing.Point(71, 52);
+            this.button_SerCard1.Name = "button_SerCard1";
+            this.button_SerCard1.Size = new System.Drawing.Size(163, 23);
+            this.button_SerCard1.TabIndex = 4;
+            this.button_SerCard1.Text = "Serialize card - тройка крести";
+            this.button_SerCard1.UseVisualStyleBackColor = true;
+            this.button_SerCard1.Click += new System.EventHandler(this.button_SerCard1_Click);
             // 
-            // button_ReadeDeck
+            // button_SerCard2
             // 
-            this.button_ReadeDeck.Location = new System.Drawing.Point(104, 206);
-            this.button_ReadeDeck.Name = "button_ReadeDeck";
-            this.button_ReadeDeck.Size = new System.Drawing.Size(159, 23);
-            this.button_ReadeDeck.TabIndex = 1;
-            this.button_ReadeDeck.Text = "Read Deck from file";
-            this.button_ReadeDeck.UseVisualStyleBackColor = true;
-            this.button_ReadeDeck.Click += new System.EventHandler(this.button_ReadeDeck_Click);
+            this.button_SerCard2.Location = new System.Drawing.Point(264, 52);
+            this.button_SerCard2.Name = "button_SerCard2";
+            this.button_SerCard2.Size = new System.Drawing.Size(219, 23);
+            this.button_SerCard2.TabIndex = 5;
+            this.button_SerCard2.Text = "Serialize card - шестерку червей";
+            this.button_SerCard2.UseVisualStyleBackColor = true;
+            this.button_SerCard2.Click += new System.EventHandler(this.button_SerCard2_Click);
             // 
-            // button_writeSevRandDeck
+            // button_CompareCard
             // 
-            this.button_writeSevRandDeck.Location = new System.Drawing.Point(415, 106);
-            this.button_writeSevRandDeck.Name = "button_writeSevRandDeck";
-            this.button_writeSevRandDeck.Size = new System.Drawing.Size(219, 23);
-            this.button_writeSevRandDeck.TabIndex = 2;
-            this.button_writeSevRandDeck.Text = "Write Savarel Random Deck to file";
-            this.button_writeSevRandDeck.UseVisualStyleBackColor = true;
-            this.button_writeSevRandDeck.Click += new System.EventHandler(this.button_writeSevRandDeck_Click);
-            // 
-            // button_readeSavRanDeck
-            // 
-            this.button_readeSavRanDeck.Location = new System.Drawing.Point(415, 206);
-            this.button_readeSavRanDeck.Name = "button_readeSavRanDeck";
-            this.button_readeSavRanDeck.Size = new System.Drawing.Size(219, 23);
-            this.button_readeSavRanDeck.TabIndex = 3;
-            this.button_readeSavRanDeck.Text = "Read savarel deck from file";
-            this.button_readeSavRanDeck.UseVisualStyleBackColor = true;
-            this.button_readeSavRanDeck.Click += new System.EventHandler(this.button_readeSavRanDeck_Click);
+            this.button_CompareCard.Location = new System.Drawing.Point(188, 133);
+            this.button_CompareCard.Name = "button_CompareCard";
+            this.button_CompareCard.Size = new System.Drawing.Size(168, 23);
+            this.button_CompareCard.TabIndex = 6;
+            this.button_CompareCard.Text = "Compare Card";
+            this.button_CompareCard.UseVisualStyleBackColor = true;
+            this.button_CompareCard.Click += new System.EventHandler(this.button_CompareCard_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 365);
-            this.Controls.Add(this.button_readeSavRanDeck);
-            this.Controls.Add(this.button_writeSevRandDeck);
-            this.Controls.Add(this.button_ReadeDeck);
-            this.Controls.Add(this.button_WriteDeck);
+            this.ClientSize = new System.Drawing.Size(500, 192);
+            this.Controls.Add(this.button_CompareCard);
+            this.Controls.Add(this.button_SerCard2);
+            this.Controls.Add(this.button_SerCard1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -90,11 +78,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button_WriteDeck;
-        private System.Windows.Forms.Button button_ReadeDeck;
-        private System.Windows.Forms.Button button_writeSevRandDeck;
-        private System.Windows.Forms.Button button_readeSavRanDeck;
+        private System.Windows.Forms.Button button_SerCard1;
+        private System.Windows.Forms.Button button_SerCard2;
+        private System.Windows.Forms.Button button_CompareCard;
     }
 }
 

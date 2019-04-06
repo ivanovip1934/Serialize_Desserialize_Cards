@@ -19,72 +19,42 @@ namespace Serialize_Deserialize_Cards
             InitializeComponent();
         }
 
-        string pathToFile = "c:\\programs\\RandomDeck.dat";
-        string pathToFile2 = "c:\\programs\\RandomDeck2.dat";
-        Random random = new Random();
 
-        //Создается пустая колода,
-        //в которую случайным образом добавляются карты из класса Card,
-        //созданного в предыдущей главе.
-        private Deck RandomDeck(int _number) {
-            Deck _myDeck = new Deck(new Card[] { });
-            for (int i = 0; i < _number; i++) {
-                _myDeck.Add(new Card(
-                    (Suits)random.Next(4),
-                    (Values)random.Next(1,14)));
-            }
-            return _myDeck;
-        }
-
-        private void DealCards(Deck _deckToDeal, string _title) {
-            Console.WriteLine(_title);
-            while (_deckToDeal.Count > 0) {
-                Card _nextCard = _deckToDeal.Deal(0);
-                Console.WriteLine(_nextCard.Name);
-            }
-            Console.WriteLine("----------------------------");
-        }
-
-        private void button_WriteDeck_Click(object sender, EventArgs e)
+        private void button_SerCard1_Click(object sender, EventArgs e)
         {
-            using (Stream _output = File.Create(this.pathToFile)) {
-                BinaryFormatter _formatter = new BinaryFormatter();
-                _formatter.Serialize(_output, this.RandomDeck(10));
-            }
-
-        }
-
-        private void button_ReadeDeck_Click(object sender, EventArgs e)
-        {
-            using (Stream _input = File.OpenRead(this.pathToFile)) {
-                BinaryFormatter _formatter = new BinaryFormatter();
-                Deck _deck = (Deck)_formatter.Deserialize(_input);
-                this.DealCards(_deck, "Random deck from file");
+            Card _card1 = new Card(Suits.Clubs, Values.Three);
+            
+            using (FileStream output = File.Create("c:\\programs\\three-c.dat"))
+            {
+                BinaryFormatter _bf = new BinaryFormatter();
+                _bf.Serialize(output, _card1);
             }
         }
 
-        private void button_writeSevRandDeck_Click(object sender, EventArgs e)
-        {
-            using (Stream _output = File.Create(this.pathToFile2)) {
-                BinaryFormatter _formatter = new BinaryFormatter();
-                for (int i = 0; i <= 5; i++){
-                    Deck _deck = this.RandomDeck(random.Next(1, 10));
-                    _formatter.Serialize(_output, _deck);
-                    this.DealCards(_deck, "Deck [" + (i + 1) + "] writen to file");
-                }
-            }
 
+        private void button_SerCard2_Click(object sender, EventArgs e)
+        {
+            Card _card1 = new Card(Suits.Hearts, Values.Six);
+            using (FileStream output = File.Create("c:\\programs\\six-h.dat"))
+            {
+                BinaryFormatter _bf = new BinaryFormatter();
+                _bf.Serialize(output, _card1);
+            }
         }
 
-        private void button_readeSavRanDeck_Click(object sender, EventArgs e)
+        
+private void button_CompareCard_Click(object sender, EventArgs e)
         {
-            using (Stream _input = File.OpenRead(this.pathToFile2)) {
-                BinaryFormatter _formatter = new BinaryFormatter();
-                for (int i = 0; i <= 5; i++){
-                    Deck _deck = (Deck)_formatter.Deserialize(_input);
-                    this.DealCards(_deck, "Deck [" + (i + 1 )+ "] readen from file");
-                }
+            byte[] firstFile = File.ReadAllBytes("c:\\programs\\three-c.dat");
+            byte[] secondFile = File.ReadAllBytes("c:\\programs\\six-h.dat");
+
+            for (int i = 0; i < firstFile.Length; i++) {
+                if (firstFile[i] != secondFile[i])
+                    Console.WriteLine("Byte #{0}: {1} versus {2}",
+                        i, firstFile[i], secondFile[i]);
             }
+
+
         }
     }
 }
