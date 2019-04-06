@@ -20,6 +20,7 @@ namespace Serialize_Deserialize_Cards
         }
 
         string pathToFile = "c:\\programs\\RandomDeck.dat";
+        string pathToFile2 = "c:\\programs\\RandomDeck2.dat";
         Random random = new Random();
 
         //Создается пустая колода,
@@ -59,6 +60,30 @@ namespace Serialize_Deserialize_Cards
                 BinaryFormatter _formatter = new BinaryFormatter();
                 Deck _deck = (Deck)_formatter.Deserialize(_input);
                 this.DealCards(_deck, "Random deck from file");
+            }
+        }
+
+        private void button_writeSevRandDeck_Click(object sender, EventArgs e)
+        {
+            using (Stream _output = File.Create(this.pathToFile2)) {
+                BinaryFormatter _formatter = new BinaryFormatter();
+                for (int i = 0; i <= 5; i++){
+                    Deck _deck = this.RandomDeck(random.Next(1, 10));
+                    _formatter.Serialize(_output, _deck);
+                    this.DealCards(_deck, "Deck [" + (i + 1) + "] writen to file");
+                }
+            }
+
+        }
+
+        private void button_readeSavRanDeck_Click(object sender, EventArgs e)
+        {
+            using (Stream _input = File.OpenRead(this.pathToFile2)) {
+                BinaryFormatter _formatter = new BinaryFormatter();
+                for (int i = 0; i <= 5; i++){
+                    Deck _deck = (Deck)_formatter.Deserialize(_input);
+                    this.DealCards(_deck, "Deck [" + (i + 1 )+ "] readen from file");
+                }
             }
         }
     }
