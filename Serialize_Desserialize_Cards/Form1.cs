@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Serialize_Deserialize_Cards
 {
@@ -17,6 +19,7 @@ namespace Serialize_Deserialize_Cards
             InitializeComponent();
         }
 
+        string pathToFile = "c:\\programs\\RandomDeck.dat";
         Random random = new Random();
 
         //Создается пустая колода,
@@ -39,6 +42,24 @@ namespace Serialize_Deserialize_Cards
                 Console.WriteLine(_nextCard.Name);
             }
             Console.WriteLine("----------------------------");
+        }
+
+        private void button_WriteDeck_Click(object sender, EventArgs e)
+        {
+            using (Stream _output = File.Create(this.pathToFile)) {
+                BinaryFormatter _formatter = new BinaryFormatter();
+                _formatter.Serialize(_output, this.RandomDeck(10));
+            }
+
+        }
+
+        private void button_ReadeDeck_Click(object sender, EventArgs e)
+        {
+            using (Stream _input = File.OpenRead(this.pathToFile)) {
+                BinaryFormatter _formatter = new BinaryFormatter();
+                Deck _deck = (Deck)_formatter.Deserialize(_input);
+                this.DealCards(_deck, "Random deck from file");
+            }
         }
     }
 }
