@@ -54,6 +54,17 @@ private void button_CompareCard_Click(object sender, EventArgs e)
                         i, firstFile[i], secondFile[i]);
             }
 
+            firstFile[333] = (byte)Suits.Spades;
+            firstFile[395] = (byte)Values.King;
+            File.WriteAllBytes("c:\\programs\\king-s.dat", firstFile);
+
+            using (FileStream input = File.OpenRead("c:\\programs\\king-s.dat"))
+            {
+                BinaryFormatter _bf = new BinaryFormatter();
+                Card _card = (Card)_bf.Deserialize(input);
+                Console.WriteLine("Suit =  {0},Value = {1}", _card.Suit, _card.Value);
+                
+            }
 
         }
     }
