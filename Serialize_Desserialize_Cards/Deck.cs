@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Serialize_Deserialize_Cards
 {
+    [Serializable]
     class Deck
     {
         private List<Card> list_card;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Serialize_Deserialize_Cards
 {
+    [Serializable]
     class Card
     {
         public Suits Suit { get; private set; }
