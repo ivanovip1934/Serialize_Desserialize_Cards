@@ -31,6 +31,7 @@
             this.button_SerCard1 = new System.Windows.Forms.Button();
             this.button_SerCard2 = new System.Windows.Forms.Button();
             this.button_CompareCard = new System.Windows.Forms.Button();
+            this.button_CreateHexDump = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_SerCard1
@@ -55,7 +56,7 @@
             // 
             // button_CompareCard
             // 
-            this.button_CompareCard.Location = new System.Drawing.Point(188, 133);
+            this.button_CompareCard.Location = new System.Drawing.Point(66, 120);
             this.button_CompareCard.Name = "button_CompareCard";
             this.button_CompareCard.Size = new System.Drawing.Size(168, 23);
             this.button_CompareCard.TabIndex = 6;
@@ -63,11 +64,22 @@
             this.button_CompareCard.UseVisualStyleBackColor = true;
             this.button_CompareCard.Click += new System.EventHandler(this.button_CompareCard_Click);
             // 
+            // button_CreateHexDump
+            // 
+            this.button_CreateHexDump.Location = new System.Drawing.Point(264, 119);
+            this.button_CreateHexDump.Name = "button_CreateHexDump";
+            this.button_CreateHexDump.Size = new System.Drawing.Size(219, 23);
+            this.button_CreateHexDump.TabIndex = 7;
+            this.button_CreateHexDump.Text = "Create hex dump";
+            this.button_CreateHexDump.UseVisualStyleBackColor = true;
+            this.button_CreateHexDump.Click += new System.EventHandler(this.button_CreateHexDump_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 192);
+            this.ClientSize = new System.Drawing.Size(500, 279);
+            this.Controls.Add(this.button_CreateHexDump);
             this.Controls.Add(this.button_CompareCard);
             this.Controls.Add(this.button_SerCard2);
             this.Controls.Add(this.button_SerCard1);
@@ -81,6 +93,7 @@
         private System.Windows.Forms.Button button_SerCard1;
         private System.Windows.Forms.Button button_SerCard2;
         private System.Windows.Forms.Button button_CompareCard;
+        private System.Windows.Forms.Button button_CreateHexDump;
     }
 }
 

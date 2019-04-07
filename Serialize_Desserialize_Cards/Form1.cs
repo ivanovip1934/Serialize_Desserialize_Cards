@@ -67,5 +67,42 @@ private void button_CompareCard_Click(object sender, EventArgs e)
             }
 
         }
+
+        private void button_CreateHexDump_Click(object sender, EventArgs e)
+        {
+            string pathToFileCard = "c:\\programs\\king-s.dat";
+            string pathtoFileHexDump = "c:\\programs\\king-s_hexdump.txt";
+            using (StreamReader reader = new StreamReader(pathToFileCard)) {
+                using (StreamWriter writer = new StreamWriter(pathtoFileHexDump, false)) {
+                    int position = 0;
+
+                    while (!reader.EndOfStream) {
+                        char[] buffer = new char[16];
+                        int charactersRead = reader.ReadBlock(buffer, 0, 16);
+                        writer.Write("{0}: ", String.Format("{0:x4}", position));
+                        position += charactersRead;
+
+                        for (int i = 0; i < 16; i++){
+                            if (i < charactersRead)
+                            {
+                                string hex = String.Format("{0:x2}", (byte)buffer[i]);
+                                writer.Write(hex + " ");
+                            }
+                            else
+                                writer.Write("  ");
+
+                            if (i == 7) { writer.Write("-- "); }
+                            if (buffer[i] < 32 || buffer[i] > 250) { buffer[i] = '.'; }
+                        }
+
+                        string bufferContents = new string(buffer);
+                        writer.WriteLine("   " + bufferContents.Substring(0, charactersRead));
+
+                    }
+
+                }
+            }
+
+        }
     }
 }
